@@ -1,0 +1,20 @@
+name: portfolio Pipeline
+
+on:
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check index.html
+        run: |
+          test -f index.html
+          echo "index.html exists"
+
+      - name: CI Success
+        run: echo "CI Pipeline completed successfully"
